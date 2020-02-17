@@ -10,4 +10,3 @@ data class Article(
     val url: String,
     val urlToImage: String
 ) : DomainModel()
-

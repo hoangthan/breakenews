@@ -1,6 +1,7 @@
 package com.example.domain.entities
 
-sealed class Error {
-    
-}
-
+data class Error(
+    val code: Int,
+    val message: String? = null,
+    val case: Throwable? = null
+)
