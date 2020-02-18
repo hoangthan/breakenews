@@ -1,9 +1,11 @@
 package com.example.data.entities
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity(tableName = ArticleEntry.TABLE_NAME)
 data class ArticleEntity(
+    @PrimaryKey(autoGenerate = true)
     val article_id: String,
     val article_type: String,
     val images: String,
@@ -15,6 +17,4 @@ data class ArticleEntity(
 
 object ArticleEntry {
     const val TABLE_NAME = ""
-    const val ID = ""
-    const val TITLE = ""
 }

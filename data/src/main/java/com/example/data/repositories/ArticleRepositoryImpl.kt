@@ -1,7 +1,7 @@
 package com.example.data.repositories
 
-import com.example.data.dataSource.LocalDataSource
-import com.example.data.dataSource.RemoteDataSource
+import com.example.data.dataSource.local.LocalDataSource
+import com.example.data.dataSource.remote.RemoteDataSource
 import com.example.domain.entities.Article
 import com.example.domain.repositories.ArticleRepository
 import com.example.domain.usecases.SearchArticleUseCase

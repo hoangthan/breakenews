@@ -1,4 +1,4 @@
-package com.example.data.dataSource
+package com.example.data.dataSource.local
 
 import com.example.data.entities.ArticleEntity
 import com.example.domain.entities.Article
@@ -9,9 +9,10 @@ import com.example.domain.usecases.SearchArticleUseCase
 interface LocalDataSource : ArticleRepository
 
 class LocalDataSourceImpl(
-    private val mapper: Mapper<Article, ArticleEntity>
+    private val mapper: Mapper<Article, ArticleEntity>,
+    private val articleDAO: ArticleDAO
 ) : LocalDataSource {
-    
+
     override fun getHeadlineNews(): List<Article> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
