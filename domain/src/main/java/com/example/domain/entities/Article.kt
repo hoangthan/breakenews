@@ -1,12 +1,11 @@
 package com.example.domain.entities
 
 data class Article(
-    val author: String,
-    val content: String,
-    val description: String,
-    val publishedAt: String,
-    val source: Source,
-    val title: String,
-    val url: String,
-    val urlToImage: String
+    val article_id: String,
+    val article_type: String,
+    val images: String,
+    val lead: String,
+    val meta_post: String,
+    val share_url: String,
+    val title_format: String
 ) : DomainModel()
