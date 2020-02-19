@@ -51,6 +51,9 @@ dependencies {
     //Coroutine for asynchronous task
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.3'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.0"
+    
+    //Kotlin for convert json to POJO
+    implementation("com.squareup.moshi:moshi-kotlin:1.9.2")
 
     //Domain layer.
     implementation project(path: ':domain')

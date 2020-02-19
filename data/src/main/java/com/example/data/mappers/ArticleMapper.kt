@@ -4,28 +4,32 @@ import com.example.data.entities.ArticleEntity
 import com.example.domain.entities.Article
 import com.example.domain.mappers.Mapper
 
-class ArticleMapper : Mapper<Article, ArticleEntity> {
+class ArticleMapper(
+    private val articleSourceMapper: ArticleSourceMapper
+) : Mapper<Article, ArticleEntity> {
     override fun mapToDomain(param: ArticleEntity): Article {
         return Article(
-            article_id = param.article_id,
-            article_type = param.article_type,
-            images = param.images,
-            lead = param.lead,
-            meta_post = param.meta_post,
-            share_url = param.share_url,
-            title_format = param.share_url
+            author = param.author,
+            content = param.content,
+            description = param.description,
+            publishedAt = param.publishedAt,
+            articleSource = articleSourceMapper.mapToDomain(param.articleSource),
+            title = param.title,
+            url = param.url,
+            urlToImage = param.urlToImage
         )
     }
 
     override fun mapToEntity(param: Article): ArticleEntity {
         return ArticleEntity(
-            article_id = param.article_id,
-            article_type = param.article_type,
-            images = param.images,
-            lead = param.lead,
-            meta_post = param.meta_post,
-            share_url = param.share_url,
-            title_format = param.share_url
+            author = param.author,
+            content = param.content,
+            description = param.description,
+            publishedAt = param.publishedAt,
+            articleSource = articleSourceMapper.mapToEntity(param.articleSource),
+            title = param.title,
+            url = param.url,
+            urlToImage = param.urlToImage
         )
     }
 }

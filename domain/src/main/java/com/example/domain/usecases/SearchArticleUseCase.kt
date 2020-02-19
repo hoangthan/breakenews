@@ -13,6 +13,11 @@ class SearchArticleUseCaseImpl(private val articleRepository: ArticleRepository)
     }
 
     data class Param(
-        val keyword: String
+        val keyword: String,
+        val country: String,
+        val category: String,
+        val sources: String,
+        val pageSize: Int,
+        val page: Int
     )
 }
