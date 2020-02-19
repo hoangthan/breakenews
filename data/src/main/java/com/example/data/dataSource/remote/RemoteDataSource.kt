@@ -1,8 +1,13 @@
 package com.example.data.dataSource.remote
 
-interface RemoteDataSource
+import com.example.data.entities.ArticleEntity
 
-class RemoteDataSourceImpl :
-    RemoteDataSource {
+interface RemoteDataSource {
+    fun loadMoreArticle(page: Int): List<ArticleEntity>
+}
 
+class RemoteDataSourceImpl : RemoteDataSource {
+    override fun loadMoreArticle(page: Int): List<ArticleEntity> {
+        return listOf()
+    }
 }

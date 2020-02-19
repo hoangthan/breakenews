@@ -5,8 +5,8 @@ import com.example.domain.entities.Article
 import com.example.domain.mappers.Mapper
 
 class ArticleMapper : Mapper<Article, ArticleEntity> {
-    override fun mapToDomain(param: Article): ArticleEntity {
-        return ArticleEntity(
+    override fun mapToDomain(param: ArticleEntity): Article {
+        return Article(
             article_id = param.article_id,
             article_type = param.article_type,
             images = param.images,
@@ -17,8 +17,8 @@ class ArticleMapper : Mapper<Article, ArticleEntity> {
         )
     }
 
-    override fun mapToEntity(param: ArticleEntity): Article {
-        return Article(
+    override fun mapToEntity(param: Article): ArticleEntity {
+        return ArticleEntity(
             article_id = param.article_id,
             article_type = param.article_type,
             images = param.images,

@@ -1,6 +1,7 @@
 package com.example.domain.mappers
 
-interface Mapper<Input, Output> {
-    fun mapToDomain(param: Input): Output
-    fun mapToEntity(param: Output): Input
+interface Mapper<Domain, Entity> {
+    fun mapToDomain(param: Entity): Domain
+    fun mapToEntity(param: Domain): Entity
 }
+

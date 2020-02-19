@@ -1,10 +1,18 @@
 package com.example.domain.usecases
 
-interface SearchArticleUseCase : BaseUseCase<>
+import com.example.domain.entities.Article
+import com.example.domain.repositories.ArticleRepository
 
-class SearchArticleUseCaseImpl : SearchArticleUseCase {
+interface SearchArticleUseCase : BaseUseCase<SearchArticleUseCaseImpl.Param, List<Article>>
+
+class SearchArticleUseCaseImpl(private val articleRepository: ArticleRepository) :
+    SearchArticleUseCase {
+
+    override fun execute(param: Param): List<Article> {
+        return articleRepository.searchArticle(param)
+    }
 
     data class Param(
-        
+        val keyword: String
     )
 }
