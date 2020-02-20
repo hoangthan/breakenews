@@ -7,7 +7,7 @@ interface DeleteArticleUseCase : BaseUseCase<DeleteArticleUseCaseImpl.Param, Boo
 class DeleteArticleUseCaseImpl(private val articleRepository: ArticleRepository) :
     DeleteArticleUseCase {
 
-    override fun execute(param: Param): Boolean {
+    override suspend fun execute(param: Param): Boolean {
         return articleRepository.deleteArticle(param)
     }
 

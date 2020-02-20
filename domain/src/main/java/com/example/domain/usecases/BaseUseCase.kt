@@ -5,5 +5,5 @@ interface BaseUseCaseWithoutParam<T> {
 }
 
 interface BaseUseCase<I, O> {
-    fun execute(param: I): O
+    suspend fun execute(param: I): O
 }

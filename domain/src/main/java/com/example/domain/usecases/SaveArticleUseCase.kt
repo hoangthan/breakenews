@@ -8,7 +8,7 @@ interface SaveArticleUseCase : BaseUseCase<Article, Boolean>
 class SaveArticleUseCaseImpl(private val articleRepository: ArticleRepository) :
     SaveArticleUseCase {
 
-    override fun execute(param: Article): Boolean {
+    override suspend fun execute(param: Article): Boolean {
         return articleRepository.saveArticle(param)
     }
 }

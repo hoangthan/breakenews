@@ -8,14 +8,15 @@ interface SearchArticleUseCase : BaseUseCase<SearchArticleUseCaseImpl.Param, Lis
 class SearchArticleUseCaseImpl(private val articleRepository: ArticleRepository) :
     SearchArticleUseCase {
 
-    override fun execute(param: Param): List<Article> {
+    override suspend fun execute(param: Param): List<Article> {
         return articleRepository.searchArticle(param)
     }
 
     data class Param(
         val keyword: String,
-        val country: String,
+        val language: String,
         val category: String,
+        val sortBy: String,
         val sources: String,
         val pageSize: Int,
         val page: Int

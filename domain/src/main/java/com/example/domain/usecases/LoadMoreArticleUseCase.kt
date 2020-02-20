@@ -8,7 +8,7 @@ interface LoadMoreArticleUseCase : BaseUseCase<LoadMoreArticleUseCaseImpl.Param,
 class LoadMoreArticleUseCaseImpl(private val articleRepository: ArticleRepository) :
     LoadMoreArticleUseCase {
 
-    override fun execute(param: Param): List<Article> {
+    override suspend fun execute(param: Param): List<Article> {
         return articleRepository.loadMoreArticle(param)
     }
 
