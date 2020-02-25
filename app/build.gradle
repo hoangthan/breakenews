@@ -49,4 +49,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycle_version"
     testImplementation "androidx.arch.core:core-testing:$arch_version"
+
+    implementation project(path: ':domain')
+    implementation project(path: ':data')
 }

@@ -3,8 +3,11 @@ package com.example.data.mappers
 import com.example.data.entities.ArticleEntity
 import com.example.domain.entities.Article
 import com.example.domain.mappers.Mapper
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class ArticleMapper(
+@Singleton
+class ArticleMapper @Inject constructor(
     private val articleSourceMapper: ArticleSourceMapper
 ) : Mapper<Article, ArticleEntity> {
     override fun mapToDomain(param: ArticleEntity): Article {

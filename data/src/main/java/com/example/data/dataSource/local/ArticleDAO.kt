@@ -11,10 +11,9 @@ import com.example.data.entities.ArticleEntry
 interface ArticleDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertArticle(articleEntity: ArticleEntity): Boolean
+    suspend fun insertArticle(articleEntity: ArticleEntity)
 
     @Query("DELETE FROM ${ArticleEntry.TABLE_NAME} WHERE ${ArticleEntry.ID} = :id")
-    suspend fun deleteArticle(id: String): Boolean
+    suspend fun deleteArticle(id: String)
 
 }
-

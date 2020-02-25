@@ -3,8 +3,9 @@ package com.example.data.mappers
 import com.example.data.entities.ArticleSourceEntity
 import com.example.domain.entities.ArticleSource
 import com.example.domain.mappers.Mapper
+import javax.inject.Inject
 
-class ArticleSourceMapper : Mapper<ArticleSource, ArticleSourceEntity> {
+class ArticleSourceMapper @Inject constructor() : Mapper<ArticleSource, ArticleSourceEntity> {
     override fun mapToDomain(param: ArticleSourceEntity): ArticleSource {
         return ArticleSource(
             id = param.id,

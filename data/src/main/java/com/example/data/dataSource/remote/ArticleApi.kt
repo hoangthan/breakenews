@@ -16,7 +16,7 @@ interface ArticleApi {
     ): List<ArticleEntity>
 
     @GET(ApiConfig.SEARCH_PATH)
-    suspend fun seacrhArticle(
+    suspend fun searchArticle(
         @Query("q") keyword: String,
         @Query("language") language: String,
         @Query("sortBy") sortBy: String,

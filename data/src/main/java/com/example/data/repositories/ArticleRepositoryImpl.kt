@@ -10,15 +10,16 @@ import com.example.domain.usecases.DeleteArticleUseCaseImpl
 import com.example.domain.usecases.GetHeadlineArticleImpl
 import com.example.domain.usecases.LoadMoreArticleUseCaseImpl
 import com.example.domain.usecases.SearchArticleUseCaseImpl
+import javax.inject.Inject
 
-class ArticleRepositoryImpl(
+class ArticleRepositoryImpl @Inject constructor(
     private val articleApi: ArticleApi,
     private val articleDAO: ArticleDAO,
     private val mapper: Mapper<Article, ArticleEntity>
 ) : ArticleRepository {
 
     override suspend fun searchArticle(param: SearchArticleUseCaseImpl.Param): List<Article> {
-        return articleApi.seacrhArticle(
+        return articleApi.searchArticle(
             keyword = param.keyword,
             language = param.language,
             sortBy = param.sortBy,
@@ -29,12 +30,24 @@ class ArticleRepositoryImpl(
 
     override suspend fun saveArticle(article: Article): Boolean {
         val articleEntity = mapper.mapToEntity(article)
-        return articleDAO.insertArticle(articleEntity)
+        return try {
+            articleDAO.insertArticle(articleEntity)
+            true
+        } catch (exception: Exception) {
+            //Log exception for debugging.
+            false
+        }
     }
 
     override suspend fun deleteArticle(param: DeleteArticleUseCaseImpl.Param): Boolean {
         val articleId = param.id
-        return articleDAO.deleteArticle(articleId)
+        return try {
+            articleDAO.deleteArticle(articleId)
+            true
+        } catch (exception: Exception) {
+            //Log exception for debugging.
+            false
+        }
     }
 
     override suspend fun loadMoreArticle(param: LoadMoreArticleUseCaseImpl.Param): List<Article> {

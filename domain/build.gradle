@@ -33,4 +33,12 @@ dependencies {
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //Dagger for inversion of control by inject dependency.
+    api 'com.google.dagger:dagger-android:2.26'
+    api 'com.google.dagger:dagger-android-support:2.26'
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.15'
+
+    //Timber for logging.
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 }

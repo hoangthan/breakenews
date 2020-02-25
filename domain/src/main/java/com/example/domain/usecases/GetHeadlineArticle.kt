@@ -2,10 +2,11 @@ package com.example.domain.usecases
 
 import com.example.domain.entities.Article
 import com.example.domain.repositories.ArticleRepository
+import javax.inject.Inject
 
 interface GetHeadlineArticle : BaseUseCase<GetHeadlineArticleImpl.Param, List<Article>>
 
-class GetHeadlineArticleImpl(
+class GetHeadlineArticleImpl @Inject constructor(
     private val articleRepository: ArticleRepository
 ) : GetHeadlineArticle {
 

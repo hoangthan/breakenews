@@ -26,7 +26,7 @@ object ApiFactory {
         .addInterceptor(HeaderInterceptor)
         .build()
 
-    val instance = Retrofit.Builder()
+    val instance: ArticleApi = Retrofit.Builder()
         .client(okHttpClient)
         .baseUrl(ApiConfig.BASE_URL)
         .addConverterFactory(MoshiConverterFactory.create())
