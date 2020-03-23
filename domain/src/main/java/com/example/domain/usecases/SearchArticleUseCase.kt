@@ -6,7 +6,9 @@ import javax.inject.Inject
 
 interface SearchArticleUseCase : BaseUseCase<SearchArticleUseCaseImpl.Param, List<Article>>
 
-class SearchArticleUseCaseImpl @Inject constructor(private val articleRepository: ArticleRepository) :
+class SearchArticleUseCaseImpl @Inject constructor(
+    private val articleRepository: ArticleRepository
+) :
     SearchArticleUseCase {
 
     override suspend fun execute(param: Param): List<Article> {

@@ -6,7 +6,9 @@ import javax.inject.Inject
 
 interface LoadMoreArticleUseCase : BaseUseCase<LoadMoreArticleUseCaseImpl.Param, List<Article>>
 
-class LoadMoreArticleUseCaseImpl @Inject constructor(private val articleRepository: ArticleRepository) :
+class LoadMoreArticleUseCaseImpl @Inject constructor(
+    private val articleRepository: ArticleRepository
+) :
     LoadMoreArticleUseCase {
 
     override suspend fun execute(param: Param): List<Article> {

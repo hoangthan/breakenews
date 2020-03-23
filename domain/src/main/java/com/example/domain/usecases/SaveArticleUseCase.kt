@@ -6,7 +6,9 @@ import javax.inject.Inject
 
 interface SaveArticleUseCase : BaseUseCase<Article, Boolean>
 
-class SaveArticleUseCaseImpl @Inject constructor(private val articleRepository: ArticleRepository) :
+class SaveArticleUseCaseImpl @Inject constructor(
+    private val articleRepository: ArticleRepository
+) :
     SaveArticleUseCase {
 
     override suspend fun execute(param: Article): Boolean {
