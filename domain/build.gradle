@@ -1,10 +1,10 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
-
 
     defaultConfig {
         minSdkVersion 25
@@ -22,6 +22,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
 
 }
 
@@ -30,7 +34,15 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.2.0'
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //Dagger for inversion of control by inject dependency.
+    api 'com.google.dagger:dagger-android:2.27'
+    api 'com.google.dagger:dagger-android-support:2.27'
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.27'
+
+    //Timber for logging.
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 }
