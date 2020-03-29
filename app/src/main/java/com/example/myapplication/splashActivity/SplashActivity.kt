@@ -7,6 +7,8 @@ import com.example.myapplication.R
 import com.example.myapplication.authActivity.AuthActivity
 import com.example.myapplication.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_splash.*
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 
 class SplashActivity : BaseActivity() {
     override var layoutId = R.layout.activity_splash
@@ -21,7 +23,10 @@ class SplashActivity : BaseActivity() {
         drawable.registerAnimationCallback(object : Animatable2.AnimationCallback() {
             override fun onAnimationEnd(drawable: Drawable?) {
                 super.onAnimationEnd(drawable)
-                openActivity(AuthActivity::class.java)
+                runBlocking {
+                    delay(300)
+                    openActivity(AuthActivity::class.java)
+                }
             }
         })
         drawable.start()
